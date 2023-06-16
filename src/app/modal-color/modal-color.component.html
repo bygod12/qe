@@ -1,0 +1,23 @@
+<h2>selecione a cor</h2>
+
+<div>
+  <div class="list-image-button">
+
+    <input class="image-button" type="color" (change)="saveevent($event)">
+
+
+  </div>
+  <div class="list-image-button">
+    <button class="image-button" mat-icon-button title="Image" (click)="save('nenhuma')">
+      Nenhuma
+    </button>
+  </div>
+
+    <div class="list-image-button">
+      <button class="image-button" mat-icon-button title="Image" (click)="save('marca')">
+        background cor da marca
+      </button>
+    </div>
+
+
+    </div>

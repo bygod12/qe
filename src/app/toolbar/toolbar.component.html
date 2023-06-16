@@ -1,0 +1,53 @@
+<div class="sidebar">
+  <section class="white_board--wrapper">
+    <div id="control_container" class="white_board--controls mat-elevation-z8">
+      <button mat-icon-button class="button" title="Seleção" (click)="activateSelectionTool()">
+        <mat-icon>select_all</mat-icon>
+      </button>
+
+      <button mat-icon-button class="button" title="Pincel" (click)="activateBrushTool()">
+        <mat-icon>brush</mat-icon>
+      </button>
+      <button mat-icon-button class="button" title="Pincel" (click)="activateStampMode()">
+        <mat-icon><img src="assets/icons/img.png"></mat-icon>
+      </button>
+
+      <button mat-icon-button class="button" title="Text" (click)="addTextToCanvas()" >
+        <mat-icon>text_fields</mat-icon>
+      </button>
+      <button mat-icon-button class="button" title="Formas" (click)="changeForma()">
+        <mat-icon><img src="assets/icons/img_2.png"></mat-icon>
+      </button>
+      <button mat-icon-button class="button" title="Background" (click)="FormaImage()">
+        <mat-icon>image</mat-icon>
+      </button>
+      <button mat-icon-button class="button" title="code" (click)="addTextToCanvasCode()">
+        <mat-icon>code</mat-icon>
+      </button>
+      <button mat-icon-button class="button" title="Delete" (click)="deleteSelectedObjects()">
+        <mat-icon>delete</mat-icon>
+      </button>
+
+
+      ___
+      <button mat-icon-button class="button" title="Undo" (click)="undo()">
+        <mat-icon>undo</mat-icon>
+      </button>
+
+      <button mat-icon-button class="button" title="Redo" (click)="redo()">
+        <mat-icon>redo</mat-icon>
+      </button>
+
+
+
+      <button mat-icon-button class="button" title="Save" [matMenuTriggerFor]="menu">
+        <mat-icon>save</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="downloadPNG()">Download png</button>
+        <button mat-menu-item (click)="downloadSVG()">Download svg</button>
+      </mat-menu>
+
+    </div>
+  </section>
+</div>

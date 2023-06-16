@@ -1,0 +1,40 @@
+<div class="container1">
+  <div class="row d-flex">
+    <div class="col-md-2 ">
+
+    </div>
+    <div class="col-md-10 d-flex justify-content-center canvas-containers">
+      <canvas id="canvas" width="600" height="800"></canvas>
+    </div>
+
+    <div class="container">
+      <div class="panes">
+        <div>
+
+          <div class="content-container">
+            <button class="pane-button clicked">
+              <h1>Images</h1>
+            </button>
+            <div class="content-container">
+              <ng-container *ngIf="loadedImages.length > 0; else noImages">
+                <div class="images-list">
+                  <div *ngFor="let image of loadedImages">
+                    <div class="list-image-button">
+                      <button class="image-button" mat-icon-button title="Image">
+                        <img [src]="image" alt="Loaded-Image" class="images">
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-template #noImages>
+                <p>No images loaded.</p>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

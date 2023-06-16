@@ -1,0 +1,102 @@
+<div class="container1">
+  <div class="row d-flex">
+    <div class="col-md-2 ">
+      <button style="position: absolute; z-index: 9999;" class="cliente-button" mat-raised-button
+              (click)="afterSave()">Salvar canvas
+      </button>
+
+      <app-toolbar [components]="components" [objects]="objects" [canvas]="canvas"></app-toolbar>
+    </div>
+    <div class="canvas-containers">
+      <canvas id="canvas" width="600" height="800"></canvas>
+    </div>
+
+    <div class="container">
+      <div class="panes">
+        <div>
+          <mat-toolbar class="closed">
+            <h3 class="pane-button clicked">
+              Images
+            </h3>
+
+          </mat-toolbar>
+
+          <div class="content-container">
+            <div class="content-container">
+              <button class="button" mat-raised-button (click)="fileInput.click()">
+                Load Images
+              </button>
+              <input type="file" accept="image/*" (change)="saveImage($event)" style="display: none" #fileInput>
+              <ng-container *ngIf="loadedImages.length > 0; else noImages">
+                <div class="images-list">
+                  <div *ngFor="let image of loadedImages">
+                    <div class="list-image-button">
+                      <button class="image-button" mat-icon-button title="Image" (click)="addImageToCanvas(image)">
+                        <img [src]="image" alt="Loaded-Image" class="images">
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-template #noImages>
+                <p>No images loaded.</p>
+              </ng-template>
+            </div>
+            <hr>
+            <div class="content-container">
+              <h3 class="pane-button clicked">
+                Bckground
+              </h3>
+              <button class="button" mat-raised-button (click)="fileInputBackground.click()">
+                Load Background Image
+              </button>
+              <input type="file" accept="image/*" (change)="saveBackground($event)" style="display: none" #fileInputBackground>
+              <ng-container>
+                <div class="images-list">
+                  <div class="list-image-button">
+                      Background como cor
+                    <input class="image-button" type="color" (change)="onColorChange($event)">
+
+                  </div>
+                  <div class="list-image-button">
+                    <button class="image-button" mat-icon-button title="Image" (click)="SelectColorPadron()">
+                      background cor da marca
+                    </button>
+
+                  </div>
+                  <div *ngFor="let image of loadedBackground">
+                    <div class="list-image-button">
+                      <button class="image-button" mat-icon-button title="Image" (click)="SelectBackground(image)">
+                        <img [src]="image" alt="Loaded-Image" class="images">
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+
+            <div class="content-container">
+              <h3 class="pane-button clicked">
+                Definir components color
+              </h3>
+              <ng-container>
+                <div class="images-list">
+                  <div *ngFor="let component of components">
+                    <div class="list-image-button">
+                      <button class="image-button" mat-icon-button [style.backgroundColor]="component.fill" (click)="changeColor(component)">
+                        <span class="button-label">{{ component.type }}</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

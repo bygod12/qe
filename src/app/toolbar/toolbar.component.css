@@ -1,0 +1,99 @@
+.sidebar {
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebar h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.white_board--controls > button {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.white_board--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.white_board--controls {
+  display: flex;
+  background-color: #ffffff;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 0 28px 28px 0;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+#control_container.hide_palette {
+  opacity: 0.2;
+  pointer-events: none;
+  animation: hide_palette_animation 0.5s forwards;
+}
+
+.button {
+  cursor: pointer;
+  margin: 0px 15px;
+  font-size: 2.1vh;
+  padding: 8px;
+  background-color: transparent;
+  border: none;
+  color: black;
+  transition: all 0.5s;
+  position: relative;
+  height: 2.25em;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+}
+
+.button:hover::before {
+  opacity: 0;
+  transform: scale(0.5, 0.5);
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transform: scale(1.2, 1.2);
+}
+
+.button:hover::after {
+  opacity: 1;
+  transform: scale(1, 1);
+}
